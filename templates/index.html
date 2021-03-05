@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Django</title>
+  <script src="https://lol.qq.com/biz/hero/free.js"></script>
+  <link rel="shortcut icon" href="/static/planet.png">
+</head>
+<style>
+  body {
+    font-size: small;
+  }
+
+  .loading {
+    color: #dcdde1;
+  }
+</style>
+<body>
+<h1>{{ title }}</h1>
+{% if flag == True %}
+<div style="font-size: small">hello</div>
+{% endif %}
+<ul>
+  <li>
+    <a href="/login">login</a>
+  </li>
+  <li>
+    <a href="/upload">文件上传</a>
+  </li>
+  <li>
+    <a href="/hobby">表单post提交</a>
+  </li>
+  <li>
+    <a href="/mysql">MySQL</a>
+  </li>
+  <li>
+    <a href="/json">JSON</a>
+  </li>
+</ul>
+<img src="/static/polo.png" alt="测试静态文件" title="{{ title }}">
+<div>{{ lists[1] }}</div>
+<h4>LOL周免英雄</h4>
+<ol class="champion">
+  <span class="loading">正在获取...</span>
+</ol>
+</body>
+<script>
+    // lol周免
+    // https://lol.qq.com/biz/hero/free.js
+    let data = LOLherojs.free.data
+    let d = ''
+
+    for (let key in data) {
+        d += `<li>${data[key].name} ${data[key].title}</li>`
+    }
+
+    setTimeout(() => {
+        document.querySelector('.champion').innerHTML = d
+    }, 3000)
+
+</script>
+</html>

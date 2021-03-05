@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>mysql</title>
+</head>
+<style>
+  body {
+    font-size: small;
+  }
+</style>
+<body>
+<h3>MySQL</h3>
+<ul>
+  {% for item in data %}
+    <li>{{ item[1] }}</li>
+  {% endfor %}
+</ul>
+</body>
+</html>
